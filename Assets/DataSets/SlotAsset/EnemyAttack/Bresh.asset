@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d3637eccbdb404bba6c3f66cfce771, type: 3}
+  m_Name: Bresh
+  m_EditorClassIdentifier: 
+  ID: 0
+  Name: Scrach
+  rank: 0
+  element: "\u7121"
+  power: 100
+  accuracy: 50
+  weaponImage: {fileID: 7486083125957326677, guid: 77bc5403c47fb2741ad8e2322002d767, type: 3}
