@@ -8,6 +8,7 @@ public class EnemyTurnManager
     StatusController _playerStatus;
     StatusController _enemyStatus;
     public StatusSpec poisonEffectAsset;
+    public StatusSpec paralysisEffectAsset;
     public EnemyTurnManager(DamageSession damageSession, BattleLog battleLog, WeaponSlot weaponSlot
                             ,StatusController playerStatus, StatusController enemyStatus)
     {
@@ -32,6 +33,8 @@ public class EnemyTurnManager
             _battleLog.Append($"Hit:{result.index} {result.weapon.power}");
             playerDied = _damageSession.EnemyAttack(result.weapon);
             _playerStatus.Apply(poisonEffectAsset);
+            _playerStatus.Apply(paralysisEffectAsset);
+            
         }
         else
         {    

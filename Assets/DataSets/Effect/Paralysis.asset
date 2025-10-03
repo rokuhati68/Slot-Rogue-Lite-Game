@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfb4c09f061c7624f96c8529de14400d, type: 3}
-  m_Name: Poison
+  m_Name: Paralysis
   m_EditorClassIdentifier: 
-  displayNameOverride: "\u6BD2"
-  icon: {fileID: -6986248985327033432, guid: 81ba55bba01078845933e26ccd5dddb7, type: 3}
+  displayNameOverride: "\u9EBB\u75FA"
+  icon: {fileID: -6283767260618712323, guid: 760a08cd8a8b7564dae17052a3ed2e25, type: 3}
   procChance: 1
   rank: 0
-  effect: {fileID: 11400000, guid: a7e25db2d25a1054997a05dc2be60698, type: 2}
+  effect: {fileID: 11400000, guid: 52df51133a90c6a45af838399f2f6128, type: 2}
   baseTurns: 3
   extendTurns: 3
-  description: When Turn End, damaged 20% HP
+  description: You cannot attack 25 %

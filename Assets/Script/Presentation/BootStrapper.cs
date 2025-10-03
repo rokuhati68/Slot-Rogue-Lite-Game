@@ -16,7 +16,7 @@ public class BootStrapper : MonoBehaviour
 
     // 追加（Inspectorでセット or Resources等で取得）
     public StatusSpec poisonEffect; // 例：まずは毒だけ流し込みたい時
-
+    public StatusSpec paralysisEffect;
     void Awake()
     {
         // 1) 共通サービス
@@ -47,7 +47,7 @@ public class BootStrapper : MonoBehaviour
         // playerTurnManager.PlayerStatus = playerStatus;
         // playerTurnManager.EnemyStatus  = enemyStatus;
         enemyTurnManager.poisonEffectAsset = poisonEffect; // 例：武器ヒット時に付与したい時
-
+        enemyTurnManager.paralysisEffectAsset = paralysisEffect;
         // 6) Presenter / UI
         _battleLogPresenter.Init(battleLog);
         _battleStartCheck.Init(_battleManager);

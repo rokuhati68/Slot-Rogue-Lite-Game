@@ -44,10 +44,15 @@ public class BattleManager:MonoBehaviour
                 case Turn.PlayerAttack:
                 {
                     Debug.Log("PlayerTurnStart");
-                    yield return StartCoroutine(_playerTurnManager.AttackFlow(
+                    _playerStatus.OnTurnStart();
+                    if (_playerStatus.canActThisTurn)
+                    {
+                        yield return StartCoroutine(_playerTurnManager.AttackFlow(
                         playerReel,
                         delegate (bool died){enemyDied = died;}
-                    ));
+                        ));
+                    }
+                    
                     _playerStatus.OnTurnEnd();
                     turn = enemyDied ? Turn.EnemyDeath : Turn.EnemyAttack;
                     yield return new WaitForSeconds(0.5f); 
@@ -56,10 +61,14 @@ public class BattleManager:MonoBehaviour
                 case Turn.EnemyAttack:
                 {
                     Debug.Log("EnemyTurnStart");
-                    yield return StartCoroutine(_enemyTurnManager.AttackFlow(
-                        enemyReel,
-                        delegate (bool died){playerDied = died;}
-                    ));
+                    _enemyStatus.OnTurnStart();
+                    if (_enemyStatus.canActThisTurn)
+                    {
+                        yield return StartCoroutine(_enemyTurnManager.AttackFlow(
+                            enemyReel,
+                            delegate (bool died){playerDied = died;}
+                        ));
+                    }
                     _enemyStatus.OnTurnEnd();
                     turn = playerDied ? Turn.PlayerDeath : Turn.PlayerAttack;
                     yield return new WaitForSeconds(0.5f); 

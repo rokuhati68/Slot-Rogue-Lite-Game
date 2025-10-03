@@ -19,6 +19,7 @@ public class StatusController
     public StatusController(IUnit self){ _self = self; }
 
     private EffectContext Ctx() => new EffectContext{ self = _self };
+    public bool canActThisTurn = true;
 
     // ★ Spec を受け取る（同じ Spec はターン延長）
     public void Apply(StatusSpec spec)
@@ -28,7 +29,13 @@ public class StatusController
         else { a.turns += Mathf.Max(1, spec.extendTurns); }
         OnChanged?.Invoke(_list);
     }
-
+    
+    public void OnTurnStart()
+    {
+        var ctx = Ctx();
+        for (int i=0;i<_list.Count;i++)
+            _list[i].spec.effect.OnTurnStart(this);
+    }
     public void OnTurnEnd()
     {
         var ctx = Ctx();

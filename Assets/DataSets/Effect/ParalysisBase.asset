@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5693c24e0c62290468de4435b12e7b04, type: 3}
-  m_Name: "\u6BD2(\u52B9\u679C)"
+  m_Script: {fileID: 11500000, guid: 62f0663e7bc098644bc86dfdd09fa754, type: 3}
+  m_Name: ParalysisBase
   m_EditorClassIdentifier: 
-  displayName: Poison
-  hpRate: 0.2
+  displayName: Paralysis
+  disableChance: 0.25

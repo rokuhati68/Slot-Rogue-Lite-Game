@@ -211,6 +211,7 @@ MonoBehaviour:
   enemyEffectView: {fileID: 1825640038}
   playerEffectView: {fileID: 1269144572}
   poisonEffect: {fileID: 11400000, guid: 79b63c2d9bdea8b4b8e7152a5d99efdd, type: 2}
+  paralysisEffect: {fileID: 11400000, guid: f720884015b14cd43b14b9461dee863b, type: 2}
 --- !u!4 &21832948
 Transform:
   m_ObjectHideFlags: 0

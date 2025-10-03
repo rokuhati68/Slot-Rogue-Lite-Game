@@ -7,4 +7,5 @@ public abstract class StatusEffect : ScriptableObject
 
     // まずは終了時だけ（毒はここを使う）
     public virtual void OnTurnEnd(EffectContext ctx) { }
+    public virtual void OnTurnStart(StatusController controller) { }
 }
