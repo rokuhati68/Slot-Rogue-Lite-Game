@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb4c09f061c7624f96c8529de14400d, type: 3}
+  m_Name: DeffenceDown
+  m_EditorClassIdentifier: 
+  displayNameOverride: "\u9632\u5FA1Down"
+  icon: {fileID: -97471160058504756, guid: bc879f11e61ac264386b4ef57b2d8d39, type: 3}
+  procChance: 1
+  rank: 0
+  effect: {fileID: 11400000, guid: e627a1b8e0282e04e8abdf8407ef8fe9, type: 2}
+  baseTurns: 3
+  extendTurns: 3
+  description: Your deffence is down

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb4c09f061c7624f96c8529de14400d, type: 3}
+  m_Name: AttackUp
+  m_EditorClassIdentifier: 
+  displayNameOverride: AttackUP
+  icon: {fileID: -8639329875951450148, guid: 1584ca78b06ba434f9df497a33f91642, type: 3}
+  procChance: 1
+  rank: 0
+  effect: {fileID: 11400000, guid: ae06e169cf05f634caabfeffe70dcd85, type: 2}
+  baseTurns: 3
+  extendTurns: 3
+  description: Your Attack is Up

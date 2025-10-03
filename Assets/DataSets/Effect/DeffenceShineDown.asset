@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb4c09f061c7624f96c8529de14400d, type: 3}
+  m_Name: DeffenceShineDown
+  m_EditorClassIdentifier: 
+  displayNameOverride: "\u9632\u5FA1Down"
+  icon: {fileID: -6111117128422462004, guid: 34c74b6f7e0b2594c822a5caf74e81c5, type: 3}
+  procChance: 1
+  rank: 0
+  effect: {fileID: 11400000, guid: 97c40f59140b5f449a1a567e21cdb851, type: 2}
+  baseTurns: 3
+  extendTurns: 3
+  description: Your deffence is down
