@@ -11,6 +11,7 @@ public class BootStrapper : MonoBehaviour
     public WeaponSlot _playerWeaponSlot;
     public WeaponSlot _enemyWeaponSlot;
     public EnemyWeaponsSet _enemyWeaponsSet;
+    public BattleEffectSet _enemyEffectSet;
     public EffectView enemyEffectView;
     public EffectView playerEffectView;
 
@@ -30,7 +31,7 @@ public class BootStrapper : MonoBehaviour
         _enemyWeaponSlot.Init(enemySlotMgr);
 
         // 3) 敵の初期セット
-        var enemyUseCase  = new EnemyUseCase(_enemy, _enemyCatalog, _enemyWeaponsSet);
+        var enemyUseCase  = new EnemyUseCase(_enemy, _enemyCatalog, _enemyWeaponsSet, _enemyEffectSet);
         var battleSession = new BattleSession(_player, enemyUseCase, battleLog);
 
         // 4) 状態コントローラ（各ユニットに1つ）

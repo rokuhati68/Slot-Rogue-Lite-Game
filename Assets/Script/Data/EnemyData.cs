@@ -16,6 +16,7 @@ public class EnemyData : ScriptableObject
     public Sprite enemyImage;
 
     public WeaponData[] weapons;
+    public StatusSpec[] effects;
     public int GetHP()
     {
         return HP;
