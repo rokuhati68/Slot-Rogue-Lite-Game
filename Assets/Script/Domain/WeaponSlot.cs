@@ -7,6 +7,13 @@ public class WeaponSlot:MonoBehaviour
     public int preId = 0;
     public void Init(SlotManager slotManager)
     {_slotManager = slotManager;}
+    public void WeaponSet(WeaponData[] weapons)
+    {
+        for(int i = 0; i < 5; i++)
+        {
+            Set(i, weapons[i]);
+        }
+    }
     public void Set(int id, WeaponData newWeapon)
     {
         WeaponsList[id] = newWeapon;

@@ -9,7 +9,7 @@ public class Reel : MonoBehaviour
     [SerializeField] float bottomPos;
     [SerializeField] float speed = 0.15f;
     [SerializeField] int maxLoopCnt; 
-
+    public bool isSpining;
     RectTransform content;
 
     void Awake()
@@ -20,9 +20,10 @@ public class Reel : MonoBehaviour
         
     }
 
-    public IEnumerator SpinToIndex(int targetIndex)
+    public void SpinToIndex(int targetIndex)
     {
-        yield return StartCoroutine(SpinSlot(targetIndex));
+        isSpining = true;
+        StartCoroutine(SpinSlot(targetIndex));
     }
     public IEnumerator SpinSlot(int stopId)
     {
@@ -53,5 +54,7 @@ public class Reel : MonoBehaviour
 
             yield return new WaitForSeconds(speed);
         }
+        Debug.Log("Spinend");
+        isSpining = false;
     }
 }

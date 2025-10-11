@@ -18,8 +18,8 @@ public class PlayerTurnManager
         // ★ Rollして結果を受け取る
         var result = _weaponSlot.Roll(); // (weapon, isHit, index)
 
-        yield return reel.SpinToIndex(result.index);
-
+        reel.SpinToIndex(result.index);
+        while (reel.isSpining) yield return null;
         bool enemyDied = false;
         if (result.isHit)
         {

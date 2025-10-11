@@ -7,13 +7,17 @@ public class EnemyUseCase:MonoBehaviour
     EnemyCatalogAsset _enemyCatalog;
     EnemyWeaponsSet _enemyWeaponsSet;
     BattleEffectSet _battleEffectSet;
+    WeaponSlot _enemyWeaponSlot;
+    EffectSlot _enemyEffectSlot;
     public EnemyUseCase(Enemy enemy, EnemyCatalogAsset enemyCatalog, EnemyWeaponsSet enemyWeaponsSet,
-                        BattleEffectSet battleEffectSet)
+                        BattleEffectSet battleEffectSet,WeaponSlot enemyWeaponSlot,EffectSlot enemyEffectSlot)
     {
         _enemy = enemy;
         _enemyCatalog = enemyCatalog;
         _enemyWeaponsSet = enemyWeaponsSet;
         _battleEffectSet = battleEffectSet;
+        _enemyWeaponSlot = enemyWeaponSlot;
+        _enemyEffectSlot = enemyEffectSlot;
     }
 
     
@@ -23,5 +27,7 @@ public class EnemyUseCase:MonoBehaviour
         _enemy.Set(enemy);
         _enemyWeaponsSet.WeaponSet(enemy.weapons);
         _battleEffectSet.EffectSet(enemy.effects);
+        _enemyWeaponSlot.WeaponSet(enemy.weapons);
+        _enemyEffectSlot.EffectSet(enemy.effects);
     }
 };

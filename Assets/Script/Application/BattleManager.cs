@@ -14,6 +14,10 @@ public class BattleManager:MonoBehaviour
     public Reel enemyReel;
     StatusController _playerStatus;
     StatusController _enemyStatus;
+    public GameObject playerReels;
+    public GameObject enemyReels;
+    Reel enemyWeaponReel;
+    Reel enemyEffectReel;
     public void Init(BattleSession battleSession, PlayerTurnManager playerTurnManager, EnemyTurnManager enemyTurnManager
                     ,StatusController playerStatus, StatusController enemyStatus)
     {
@@ -23,6 +27,9 @@ public class BattleManager:MonoBehaviour
         _playerStatus = playerStatus;
         _enemyStatus = enemyStatus;
         turn = Turn.Set;
+        Reel[] _enemyReelList = enemyReels.GetComponentsInChildren<Reel>(true);
+        enemyWeaponReel = _enemyReelList[0];
+        enemyEffectReel = _enemyReelList[1];
     }
     
     public void BattleStart()
@@ -43,6 +50,8 @@ public class BattleManager:MonoBehaviour
             {
                 case Turn.PlayerAttack:
                 {
+                    enemyReels.SetActive(false);
+                    playerReels.SetActive(true);
                     Debug.Log("PlayerTurnStart");
                     _playerStatus.OnTurnStart();
                     if (_playerStatus.canActThisTurn)
@@ -60,12 +69,14 @@ public class BattleManager:MonoBehaviour
                 }
                 case Turn.EnemyAttack:
                 {
+                    playerReels.SetActive(false);
+                    enemyReels.SetActive(true);
                     Debug.Log("EnemyTurnStart");
                     _enemyStatus.OnTurnStart();
                     if (_enemyStatus.canActThisTurn)
                     {
                         yield return StartCoroutine(_enemyTurnManager.AttackFlow(
-                            enemyReel,
+                            enemyWeaponReel,enemyEffectReel,
                             delegate (bool died){playerDied = died;}
                         ));
                     }

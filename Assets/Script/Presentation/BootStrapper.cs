@@ -10,6 +10,7 @@ public class BootStrapper : MonoBehaviour
     public BattleManager _battleManager;
     public WeaponSlot _playerWeaponSlot;
     public WeaponSlot _enemyWeaponSlot;
+    public EffectSlot _enemyEffectSlot;
     public EnemyWeaponsSet _enemyWeaponsSet;
     public BattleEffectSet _enemyEffectSet;
     public EffectView enemyEffectView;
@@ -29,9 +30,9 @@ public class BootStrapper : MonoBehaviour
         var enemySlotMgr  = new SlotManager();
         _playerWeaponSlot.Init(playerSlotMgr);
         _enemyWeaponSlot.Init(enemySlotMgr);
-
+        _enemyEffectSlot.Init(enemySlotMgr);
         // 3) 敵の初期セット
-        var enemyUseCase  = new EnemyUseCase(_enemy, _enemyCatalog, _enemyWeaponsSet, _enemyEffectSet);
+        var enemyUseCase  = new EnemyUseCase(_enemy, _enemyCatalog, _enemyWeaponsSet, _enemyEffectSet, _enemyWeaponSlot, _enemyEffectSlot);
         var battleSession = new BattleSession(_player, enemyUseCase, battleLog);
 
         // 4) 状態コントローラ（各ユニットに1つ）
@@ -40,7 +41,7 @@ public class BootStrapper : MonoBehaviour
         var enemyStatus  = new StatusController(_enemy);
 
         // 5) ターンマネージャ
-        var enemyTurnManager  = new EnemyTurnManager(damageSession, battleLog, _enemyWeaponSlot, playerStatus, enemyStatus);
+        var enemyTurnManager  = new EnemyTurnManager(damageSession, battleLog, _enemyWeaponSlot,_enemyEffectSlot, playerStatus, enemyStatus);
         var playerTurnManager = new PlayerTurnManager(damageSession, battleLog, _playerWeaponSlot);
 
         // （必要なら）マネージャに Status を注入できるようプロパティを用意しておくと便利
