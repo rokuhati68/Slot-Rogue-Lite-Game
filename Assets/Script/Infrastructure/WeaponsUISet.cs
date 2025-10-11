@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-public class EnemyWeaponsSet:MonoBehaviour
+public class WeaponsUISet:MonoBehaviour
 {
 
     public Image[] images;

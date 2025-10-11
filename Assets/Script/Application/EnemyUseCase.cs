@@ -5,11 +5,11 @@ public class EnemyUseCase:MonoBehaviour
     
     Enemy _enemy;
     EnemyCatalogAsset _enemyCatalog;
-    EnemyWeaponsSet _enemyWeaponsSet;
+    WeaponsUISet _enemyWeaponsSet;
     BattleEffectSet _battleEffectSet;
     WeaponSlot _enemyWeaponSlot;
     EffectSlot _enemyEffectSlot;
-    public EnemyUseCase(Enemy enemy, EnemyCatalogAsset enemyCatalog, EnemyWeaponsSet enemyWeaponsSet,
+    public EnemyUseCase(Enemy enemy, EnemyCatalogAsset enemyCatalog, WeaponsUISet enemyWeaponsSet,
                         BattleEffectSet battleEffectSet,WeaponSlot enemyWeaponSlot,EffectSlot enemyEffectSlot)
     {
         _enemy = enemy;
@@ -20,7 +20,7 @@ public class EnemyUseCase:MonoBehaviour
         _enemyEffectSlot = enemyEffectSlot;
     }
 
-    
+
     public void EnemySet()
     {
         var enemy = _enemyCatalog.TryGet(1);

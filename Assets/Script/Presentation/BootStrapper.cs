@@ -4,6 +4,7 @@ public class BootStrapper : MonoBehaviour
 {
     public BattleStartCheck _battleStartCheck;
     public Player _player;
+    public PlayerData _playerData;
     public Enemy _enemy;
     public EnemyCatalogAsset _enemyCatalog;
     public BattleLogPresenter _battleLogPresenter;
@@ -11,14 +12,14 @@ public class BootStrapper : MonoBehaviour
     public WeaponSlot _playerWeaponSlot;
     public WeaponSlot _enemyWeaponSlot;
     public EffectSlot _enemyEffectSlot;
-    public EnemyWeaponsSet _enemyWeaponsSet;
+    public EffectSlot _playerEffectSlot;
+    public WeaponsUISet _enemyWeaponsSet;
+    public WeaponsUISet _playerWeaponsSet;
     public BattleEffectSet _enemyEffectSet;
+    public BattleEffectSet _playerEffectSet;
     public EffectView enemyEffectView;
     public EffectView playerEffectView;
 
-    // 追加（Inspectorでセット or Resources等で取得）
-    public StatusSpec poisonEffect; // 例：まずは毒だけ流し込みたい時
-    public StatusSpec paralysisEffect;
     void Awake()
     {
         // 1) 共通サービス
@@ -33,7 +34,8 @@ public class BootStrapper : MonoBehaviour
         _enemyEffectSlot.Init(enemySlotMgr);
         // 3) 敵の初期セット
         var enemyUseCase  = new EnemyUseCase(_enemy, _enemyCatalog, _enemyWeaponsSet, _enemyEffectSet, _enemyWeaponSlot, _enemyEffectSlot);
-        var battleSession = new BattleSession(_player, enemyUseCase, battleLog);
+        var playerUseCase  = new PlayerUseCase(_player, _playerData, _playerWeaponsSet, _playerEffectSet, _playerWeaponSlot, _playerEffectSlot);
+        var battleSession = new BattleSession(playerUseCase, enemyUseCase, battleLog);
 
         // 4) 状態コントローラ（各ユニットに1つ）
         //    ※ IUnit を Player / Enemy が実装していることが前提
@@ -42,14 +44,13 @@ public class BootStrapper : MonoBehaviour
 
         // 5) ターンマネージャ
         var enemyTurnManager  = new EnemyTurnManager(damageSession, battleLog, _enemyWeaponSlot,_enemyEffectSlot, playerStatus, enemyStatus);
-        var playerTurnManager = new PlayerTurnManager(damageSession, battleLog, _playerWeaponSlot);
+        var playerTurnManager = new PlayerTurnManager(damageSession, battleLog, _playerWeaponSlot,_enemyEffectSlot, playerStatus, enemyStatus);
 
         // （必要なら）マネージャに Status を注入できるようプロパティを用意しておくと便利
         // enemyTurnManager.PlayerStatus = playerStatus;
         // playerTurnManager.PlayerStatus = playerStatus;
         // playerTurnManager.EnemyStatus  = enemyStatus;
-        enemyTurnManager.poisonEffectAsset = poisonEffect; // 例：武器ヒット時に付与したい時
-        enemyTurnManager.paralysisEffectAsset = paralysisEffect;
+        
         // 6) Presenter / UI
         _battleLogPresenter.Init(battleLog);
         _battleStartCheck.Init(_battleManager);

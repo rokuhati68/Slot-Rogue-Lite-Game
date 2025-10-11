@@ -28,8 +28,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af7accc26a6a0fc44a290f916d6c2f4f, type: 2}
   - {fileID: 11400000, guid: 1ed34749f4505d24da970226f068fb51, type: 2}
   effects:
-  - {fileID: 11400000, guid: 589411b8063f7e741b35f8ad82ca12d5, type: 2}
-  - {fileID: 11400000, guid: 717d6e4bb5764ce449297f0e5d6bd9d0, type: 2}
-  - {fileID: 11400000, guid: 9a4f065ff4b75084aa13f2acf872b3d2, type: 2}
-  - {fileID: 11400000, guid: 3cf526059c862b64f8b9a2d7581acaaf, type: 2}
-  - {fileID: 11400000, guid: 25be8675dc01a2544a27346ba6965b6e, type: 2}
+  - {fileID: 11400000, guid: 79b63c2d9bdea8b4b8e7152a5d99efdd, type: 2}
+  - {fileID: 11400000, guid: f720884015b14cd43b14b9461dee863b, type: 2}
+  - {fileID: 11400000, guid: 79b63c2d9bdea8b4b8e7152a5d99efdd, type: 2}
+  - {fileID: 11400000, guid: f720884015b14cd43b14b9461dee863b, type: 2}
+  - {fileID: 11400000, guid: 79b63c2d9bdea8b4b8e7152a5d99efdd, type: 2}

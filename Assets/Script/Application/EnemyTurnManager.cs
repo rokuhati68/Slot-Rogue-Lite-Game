@@ -8,8 +8,6 @@ public class EnemyTurnManager
     EffectSlot _effectSlot;
     StatusController _playerStatus;
     StatusController _enemyStatus;
-    public StatusSpec poisonEffectAsset;
-    public StatusSpec paralysisEffectAsset;
     public EnemyTurnManager(DamageSession damageSession, BattleLog battleLog, WeaponSlot weaponSlot
                 ,EffectSlot effectSlot,StatusController playerStatus, StatusController enemyStatus)
     {
@@ -27,7 +25,6 @@ public class EnemyTurnManager
         // ★ Rollして結果を受け取る
         var result = _weaponSlot.Roll(); // (weapon, isHit, index)
         var effectResult = _effectSlot.Roll();
-        Debug.Log("reelstart");
         weaponReel.SpinToIndex(result.index);
         effectReel.SpinToIndex(effectResult.index);
         while(effectReel.isSpining) yield return null;
