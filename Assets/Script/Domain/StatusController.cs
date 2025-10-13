@@ -13,7 +13,7 @@ public class StatusController
     }
 
     private readonly IUnit _self;
-    private readonly List<Active> _list = new List<Active>();
+    public List<Active> _list = new List<Active>();
     public event Action<IReadOnlyList<Active>> OnChanged; // UI通知（Presenterが購読）
 
     public StatusController(IUnit self){ _self = self; }
@@ -32,6 +32,7 @@ public class StatusController
     
     public void OnTurnStart()
     {
+        canActThisTurn = true;
         var ctx = Ctx();
         for (int i=0;i<_list.Count;i++)
             _list[i].spec.effect.OnTurnStart(this);
@@ -49,7 +50,6 @@ public class StatusController
         for (int i=_list.Count-1;i>=0;i--)
         {
             _list[i].turns--;
-            Debug.Log("減った");
             if (_list[i].turns<=0){ _list.RemoveAt(i);}
         }
         OnChanged?.Invoke(_list);

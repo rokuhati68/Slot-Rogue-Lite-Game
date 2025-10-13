@@ -35,7 +35,7 @@ public class EnemyTurnManager
         if (result.isHit)
         {
             _battleLog.Append($"Hit:{result.index} {result.weapon.power}");
-            playerDied = _damageSession.EnemyAttack(result.weapon);
+            playerDied = _damageSession.EnemyAttack(result.weapon,_enemyStatus, _playerStatus);
             var target = _enemyStatus;
             if (spec.effect is StatModifierEffect mod)
             {

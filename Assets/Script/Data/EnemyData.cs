@@ -8,7 +8,7 @@ public class EnemyData : ScriptableObject
     public int ID;
     public string Name;
     public int rank;
-    public string element;
+    public ElementType element = ElementType.None;
     public int HP;
     public int ATK;
     public int DFS;

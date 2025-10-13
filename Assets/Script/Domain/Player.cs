@@ -8,6 +8,8 @@ public class Player:MonoBehaviour,IUnit
     public int HP{ get; set; }
     public int ATK;
     public int DFS;
+    int IUnit.ATK => ATK;
+    int IUnit.DFS => DFS;
     public StatusController Status { get; private set; }
     public ElementType Element => ElementType.None;
 

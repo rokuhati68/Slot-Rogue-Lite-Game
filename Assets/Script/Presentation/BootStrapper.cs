@@ -24,7 +24,8 @@ public class BootStrapper : MonoBehaviour
     {
         // 1) 共通サービス
         var battleLog = new BattleLog(10);
-        var damageSession = new DamageSession(_enemy, _player);
+        var calculateDamage = new CalculateDamage(); 
+        var damageSession = new DamageSession(_enemy, _player,calculateDamage);
 
         // 2) スロット系（← プレイヤー/敵で別インスタンスにする）
         var playerSlotMgr = new SlotManager();

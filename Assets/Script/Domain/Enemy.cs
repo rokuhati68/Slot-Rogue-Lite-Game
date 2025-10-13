@@ -9,11 +9,13 @@ public class Enemy:MonoBehaviour,IUnit
     public int HP{ get; set; }
     public int ATK;
     public int DFS;
+    int IUnit.ATK => ATK;
+    int IUnit.DFS => DFS;
     public string Name;
     public Sprite Image;
     public StatusController Status { get; private set; }
-    public ElementType Element => ElementType.None;
-
+    public ElementType Element {get;private set;} = ElementType.None;
+    ElementType IUnit.Element => Element;
     void Awake()
     {
         Status = new StatusController(this);
@@ -26,6 +28,7 @@ public class Enemy:MonoBehaviour,IUnit
         DFS = enemy.DFS;
         Name = enemy.Name;
         Image = enemy.enemyImage;
+        Element = enemy.element;
         EnemySet?.Invoke();
     }
     public bool Damaged(int damage)
