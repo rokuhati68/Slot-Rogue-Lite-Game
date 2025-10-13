@@ -20,7 +20,6 @@ public class PlayerTurnManager
     }
     public IEnumerator AttackFlow(Reel weaponReel, Reel effectReel, System.Action<bool> onFinished)
     {
-        _battleLog.Append("PlayerTurnStart");
 
         // ★ Rollして結果を受け取る
         var result = _weaponSlot.Roll(); // (weapon, isHit, index)
@@ -33,7 +32,6 @@ public class PlayerTurnManager
         bool enemyDied = false;
         if (result.isHit)
         {
-            _battleLog.Append($"Hit:{result.index} {result.weapon.power}");
             enemyDied = _damageSession.PlayerAttack(result.weapon,_enemyStatus,_playerStatus);
             var target = _enemyStatus;
             if (spec.effect is StatModifierEffect mod)
@@ -46,7 +44,8 @@ public class PlayerTurnManager
         }
         else
         {    
-            _battleLog.Append("Miss");        
+            _battleLog.Append("プレイヤーの攻撃！");
+            _battleLog.Append("しかし、攻撃は外れた！");        
         }
         
         onFinished(enemyDied);

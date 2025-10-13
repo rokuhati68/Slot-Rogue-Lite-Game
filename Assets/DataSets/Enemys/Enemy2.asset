@@ -15,10 +15,10 @@ MonoBehaviour:
   ID: 1
   Name: gbline
   rank: 0
-  element: "\u706B"
-  HP: 300
-  ATK: 15
-  DFS: 50
+  element: 1
+  HP: 100
+  ATK: 10
+  DFS: 10
   SPD: 10
   enemyImage: {fileID: -2645905134088738595, guid: 5c136a05b2fdfe24296e93a06969d1dc, type: 3}
   weapons:

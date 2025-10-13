@@ -54,7 +54,6 @@ public class Reel : MonoBehaviour
 
             yield return new WaitForSeconds(speed);
         }
-        Debug.Log("Spinend");
         isSpining = false;
     }
 }

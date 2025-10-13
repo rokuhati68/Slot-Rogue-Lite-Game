@@ -15,7 +15,6 @@ public class BattleSession
     {
         _playerUseCase.PlayerSet();
         _enemyUseCase.EnemySet();
-        _battleLog.Append("Battle Start!");
     }
 
 }

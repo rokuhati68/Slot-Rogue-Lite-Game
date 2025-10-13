@@ -23,9 +23,9 @@ public class BootStrapper : MonoBehaviour
     void Awake()
     {
         // 1) 共通サービス
-        var battleLog = new BattleLog(10);
+        var battleLog = new BattleLog(50);
         var calculateDamage = new CalculateDamage(); 
-        var damageSession = new DamageSession(_enemy, _player,calculateDamage);
+        var damageSession = new DamageSession(_enemy, _player,calculateDamage,battleLog);
 
         // 2) スロット系（← プレイヤー/敵で別インスタンスにする）
         var playerSlotMgr = new SlotManager();
@@ -59,7 +59,7 @@ public class BootStrapper : MonoBehaviour
         var enemyEffectPresenter = new EffectPresenter(enemyStatus,enemyEffectView);
         var playerEffectPresenter = new EffectPresenter(playerStatus, playerEffectView);
         // 7) BattleManager 初期化（必要なら Status も注入）
-        _battleManager.Init(battleSession, playerTurnManager, enemyTurnManager, playerStatus, enemyStatus);
+        _battleManager.Init(battleSession, playerTurnManager, enemyTurnManager, playerStatus, enemyStatus,battleLog);
         //_battleManager.Init(battleSession, playerTurnManager, enemyTurnManager);
     }
 }

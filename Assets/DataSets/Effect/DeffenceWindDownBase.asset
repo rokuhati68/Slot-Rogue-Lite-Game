@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: 
   targetStat: 1
-  element: 0
+  element: 3
   multiplier: 0.65

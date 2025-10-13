@@ -15,4 +15,4 @@ MonoBehaviour:
   displayName: Paralysis
   targetStat: 1
   element: 0
-  multiplier: 1.2
+  multiplier: 1

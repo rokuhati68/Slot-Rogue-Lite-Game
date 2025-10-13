@@ -20,14 +20,16 @@ public class BattleManager:MonoBehaviour
     Reel playerEffectReel;
     Reel enemyWeaponReel;
     Reel enemyEffectReel;
+    BattleLog _battleLog;
     public void Init(BattleSession battleSession, PlayerTurnManager playerTurnManager, EnemyTurnManager enemyTurnManager
-                    ,StatusController playerStatus, StatusController enemyStatus)
+                    ,StatusController playerStatus, StatusController enemyStatus,BattleLog battleLog)
     {
         _battleSession = battleSession;
         _playerTurnManager = playerTurnManager;
         _enemyTurnManager = enemyTurnManager;
         _playerStatus = playerStatus;
         _enemyStatus = enemyStatus;
+        _battleLog = battleLog;
         turn = Turn.Set;
         Reel[] _playerReelList = playerReels.GetComponentsInChildren<Reel>(true);
         playerWeaponReel = _playerReelList[0];
@@ -56,9 +58,9 @@ public class BattleManager:MonoBehaviour
             {
                 case Turn.PlayerAttack:
                 {
+                    _battleLog.Append("～ プレイヤーターン ～");
                     enemyReels.SetActive(false);
                     playerReels.SetActive(true);
-                    Debug.Log("PlayerTurnStart");
                     _playerStatus.OnTurnStart();
                     if (_playerStatus.canActThisTurn)
                     {
@@ -77,7 +79,7 @@ public class BattleManager:MonoBehaviour
                 {
                     playerReels.SetActive(false);
                     enemyReels.SetActive(true);
-                    Debug.Log("EnemyTurnStart");
+                    _battleLog.Append("～ 敵ターン ～");
                     _enemyStatus.OnTurnStart();
                     if (_enemyStatus.canActThisTurn)
                     {

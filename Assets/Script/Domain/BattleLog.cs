@@ -9,7 +9,7 @@ public class BattleLog
     private readonly int capacity;
     private readonly LinkedList<string> lines = new LinkedList<string>();
 
-    public BattleLog(int capacity = 10)
+    public BattleLog(int capacity = 50)
     {
         this.capacity = Math.Max(1, capacity);
     }

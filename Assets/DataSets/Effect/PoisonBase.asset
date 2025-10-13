@@ -15,5 +15,5 @@ MonoBehaviour:
   displayName: Poison
   targetStat: 1
   element: 0
-  multiplier: 1.2
+  multiplier: 1
   hpRate: 0.2
