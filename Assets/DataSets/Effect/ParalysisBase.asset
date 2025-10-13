@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: ParalysisBase
   m_EditorClassIdentifier: 
   displayName: Paralysis
-  disableChance: 0.25
+  targetStat: 1
+  element: 0
+  multiplier: 1.2

@@ -8,7 +8,7 @@ public class BattleEffectSet:MonoBehaviour
     {
         for(int i=0; i< 5; i++)
         {
-            images[i].sprite = effects[i].icon;
+            images[i].sprite = effects[4 - i].icon;
         }
 
 

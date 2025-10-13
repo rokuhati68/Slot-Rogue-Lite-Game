@@ -25,17 +25,25 @@ public class EnemyTurnManager
         // ★ Rollして結果を受け取る
         var result = _weaponSlot.Roll(); // (weapon, isHit, index)
         var effectResult = _effectSlot.Roll();
+        var spec = effectResult.effect;
+        Debug.Log(result.index);
         weaponReel.SpinToIndex(result.index);
         effectReel.SpinToIndex(effectResult.index);
         while(effectReel.isSpining) yield return null;
+        yield return new WaitForSeconds(1f);
         bool playerDied = false;
         if (result.isHit)
         {
             _battleLog.Append($"Hit:{result.index} {result.weapon.power}");
             playerDied = _damageSession.EnemyAttack(result.weapon);
-            _battleLog.Append("{effectResult.index}");
-            _playerStatus.Apply(effectResult.effect);
-            
+            var target = _enemyStatus;
+            if (spec.effect is StatModifierEffect mod)
+            {
+                // 暗黙ルール：AttackはSelf、DefenseはEnemy
+                if (mod.targetStat == StatType.Attack) target = _enemyStatus;
+                else                                    target = _playerStatus;
+            }
+            target.Apply(spec);
         }
         else
         {    

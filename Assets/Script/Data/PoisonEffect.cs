@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Status/Poison")]
-public class PoisonEffect : StatusEffect
+public class PoisonEffect : StatModifierEffect
 {
     [Range(0f, 1f)] public float hpRate = 0.20f;  // 現在HPの20%
     

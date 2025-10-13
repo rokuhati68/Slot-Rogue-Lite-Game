@@ -30,6 +30,7 @@ public class BootStrapper : MonoBehaviour
         var playerSlotMgr = new SlotManager();
         var enemySlotMgr  = new SlotManager();
         _playerWeaponSlot.Init(playerSlotMgr);
+        _playerEffectSlot.Init(playerSlotMgr);
         _enemyWeaponSlot.Init(enemySlotMgr);
         _enemyEffectSlot.Init(enemySlotMgr);
         // 3) 敵の初期セット
@@ -44,7 +45,7 @@ public class BootStrapper : MonoBehaviour
 
         // 5) ターンマネージャ
         var enemyTurnManager  = new EnemyTurnManager(damageSession, battleLog, _enemyWeaponSlot,_enemyEffectSlot, playerStatus, enemyStatus);
-        var playerTurnManager = new PlayerTurnManager(damageSession, battleLog, _playerWeaponSlot,_enemyEffectSlot, playerStatus, enemyStatus);
+        var playerTurnManager = new PlayerTurnManager(damageSession, battleLog, _playerWeaponSlot,_playerEffectSlot, playerStatus, enemyStatus);
 
         // （必要なら）マネージャに Status を注入できるようプロパティを用意しておくと便利
         // enemyTurnManager.PlayerStatus = playerStatus;

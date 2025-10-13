@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: PoisonBase
   m_EditorClassIdentifier: 
   displayName: Poison
+  targetStat: 1
+  element: 0
+  multiplier: 1.2
   hpRate: 0.2

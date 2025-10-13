@@ -2,15 +2,16 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Status/Paralysis")]
-public class ParalysisEffect : StatusEffect
+public class ParalysisEffect : StatModifierEffect
 {
-    [SerializeField, Range(0f,1f)]
-    private float disableChance = 0.25f;  // 25%
+    
+    private int disableChance = 25;  // 25%
 
     public override void OnTurnStart(StatusController controller)
     {
+        int value = Random.Range(0,100);
         // ランダムで25%の確率で行動を無効化
-        if (Random.value < disableChance)
+        if (value < disableChance)
         {
             controller.canActThisTurn = false;
             Debug.Log( "paralyzed and cannot act!");
