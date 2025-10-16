@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 5
   Name: Sowrd
   rank: 0
-  element: 
+  element: 0
   power: 10
   accuracy: 80
-  weaponImage: {fileID: 8062757504461111466, guid: e67be14a78062fc4e99c12b8d1ad1595, type: 3}
+  weaponImage: {fileID: 2952482376178455717, guid: ca7d35e0d728a2048b7697bed01a98b7, type: 3}

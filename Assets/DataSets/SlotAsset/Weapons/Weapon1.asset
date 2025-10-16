@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 1
   Name: Arrow
   rank: 0
-  element: 
+  element: 0
   power: 40
   accuracy: 80
-  weaponImage: {fileID: -5590482454680174555, guid: 659009fe722b43a4f8a2f925929fe6d2, type: 3}
+  weaponImage: {fileID: 699742988220537437, guid: 9e5a463537eace14db1c1625a7efc31d, type: 3}

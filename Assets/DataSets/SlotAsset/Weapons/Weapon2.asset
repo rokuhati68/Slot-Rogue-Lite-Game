@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 2
   Name: Knife
   rank: 0
-  element: 
+  element: 0
   power: 10
   accuracy: 50
-  weaponImage: {fileID: -5590482454680174555, guid: 659009fe722b43a4f8a2f925929fe6d2, type: 3}
+  weaponImage: {fileID: 4744982310732968738, guid: e9469b330cc5950428da581633a28974, type: 3}

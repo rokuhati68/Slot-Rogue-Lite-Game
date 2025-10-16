@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public enum Turn {Set, PlayerAttack, EnemyAttack,PlayerDeath, EnemyDeath}
 public class BattleManager:MonoBehaviour
 {
+    public event System.Action<int> OnBattleFinished;
     BattleSession _battleSession;
     PlayerTurnManager _playerTurnManager;
     EnemyTurnManager _enemyTurnManager;
@@ -95,8 +96,10 @@ public class BattleManager:MonoBehaviour
                     break;
                 }
                 case Turn.PlayerDeath:
+                OnBattleFinished?.Invoke(0);
                 yield break;
                 case Turn.EnemyDeath:
+                OnBattleFinished?.Invoke(1);
                 yield break;
             }
         }
