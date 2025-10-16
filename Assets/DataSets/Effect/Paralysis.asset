@@ -19,4 +19,5 @@ MonoBehaviour:
   effect: {fileID: 11400000, guid: 52df51133a90c6a45af838399f2f6128, type: 2}
   baseTurns: 3
   extendTurns: 3
-  description: You cannot attack 25 %
+  description: "25%\u3067\u884C\u52D5\u4E0D\u53EF"
+  appendDescription: "\u9EBB\u75FA\u72B6\u614B\u306B\u306A\u3063\u305F\uFF01"

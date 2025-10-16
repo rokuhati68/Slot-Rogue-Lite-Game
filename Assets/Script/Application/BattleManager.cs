@@ -69,7 +69,7 @@ public class BattleManager:MonoBehaviour
                         delegate (bool died){enemyDied = died;}
                         ));
                     }
-                    
+                    else _battleLog.Append("しかし、動けなかった!");
                     _playerStatus.OnTurnEnd();
                     turn = enemyDied ? Turn.EnemyDeath : Turn.EnemyAttack;
                     yield return new WaitForSeconds(0.5f); 
@@ -88,6 +88,7 @@ public class BattleManager:MonoBehaviour
                             delegate (bool died){playerDied = died;}
                         ));
                     }
+                    else _battleLog.Append("しかし、動けなかった!");
                     _enemyStatus.OnTurnEnd();
                     turn = playerDied ? Turn.PlayerDeath : Turn.PlayerAttack;
                     yield return new WaitForSeconds(0.5f); 

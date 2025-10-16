@@ -22,6 +22,8 @@ public class StatusSpec : ScriptableObject
 
     [TextArea(1, 6)]
     public string description;
+    [TextArea(1, 6)]
+    public string appendDescription;
 
     
 }

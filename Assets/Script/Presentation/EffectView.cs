@@ -24,7 +24,7 @@ public class EffectView : MonoBehaviour
 
             // 残りターン
             var turns = go.GetComponentInChildren<TextMeshProUGUI>(true);
-            if (turns) turns.text = $"remind turn {data[i].Turns}";
+            if (turns) turns.text = $"残り {data[i].Turns} ターン";
 
             // 説明（Prefab内のパスに合わせて）
             var descTr = go.transform.Find("BackGraund/Explain");

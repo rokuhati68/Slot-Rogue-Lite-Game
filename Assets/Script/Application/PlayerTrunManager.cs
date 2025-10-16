@@ -34,13 +34,23 @@ public class PlayerTurnManager
         {
             enemyDied = _damageSession.PlayerAttack(result.weapon,_enemyStatus,_playerStatus);
             var target = _enemyStatus;
+            string targetName = "";
             if (spec.effect is StatModifierEffect mod)
             {
                 // 暗黙ルール：AttackはSelf、DefenseはEnemy
-                if (mod.targetStat == StatType.Attack) target = _playerStatus;
-                else                                    target = _enemyStatus;
+                if (mod.targetStat == StatType.Attack) 
+                    {
+                        target = _playerStatus;
+                        targetName = "プレイヤー";
+                    }
+                else
+                    {
+                        target = _enemyStatus;
+                        targetName = "敵";
+                    }
             }
             target.Apply(spec);
+            _battleLog.Append(targetName +"の" +spec.appendDescription);
         }
         else
         {    

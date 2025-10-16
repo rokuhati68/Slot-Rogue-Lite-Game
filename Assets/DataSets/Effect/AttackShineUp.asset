@@ -19,4 +19,5 @@ MonoBehaviour:
   effect: {fileID: 11400000, guid: 57ad4cbad9a28d04ab2ce6d153610f4b, type: 2}
   baseTurns: 3
   extendTurns: 3
-  description: Your Attack is Up
+  description: "\u5149\u5C5E\u6027\u653B\u6483Up"
+  appendDescription: "\u5149\u5C5E\u6027\u653B\u6483Up\uFF01"

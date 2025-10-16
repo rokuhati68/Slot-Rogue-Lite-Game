@@ -19,4 +19,5 @@ MonoBehaviour:
   effect: {fileID: 11400000, guid: 15fa34d703eb4d148b9c7f87c70465b0, type: 2}
   baseTurns: 3
   extendTurns: 3
-  description: Your deffence is down
+  description: "\u98A8\u5C5E\u6027\u8010\u6027Down"
+  appendDescription: "\u98A8\u5C5E\u6027\u8010\u6027Down\uFF01"
