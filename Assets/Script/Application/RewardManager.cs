@@ -10,6 +10,7 @@ public class RewardManager:MonoBehaviour
     public BattleEffectSet rewardEffectSet;
     public PlayerData _playerData;
     public TextMeshProUGUI[] status;
+    public WeaponDataView weaponDataView;
     public void ShowPanel()
     {
         nowSet();
@@ -25,6 +26,7 @@ public class RewardManager:MonoBehaviour
         var effects = _playerData.effects;
         nowWeaponsUISet.WeaponSet(weapons);
         nowEffectSet.EffectSet(effects);
+        weaponDataView.View(weapons,5);
     }
 
 
