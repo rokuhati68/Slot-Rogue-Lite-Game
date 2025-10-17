@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+
+public enum EnemyRank {Low,Mid,High,Boss}
 [CreateAssetMenu(fileName = "EnemyDeta", menuName = "Scriptable Objects/EnemyDeta")]
 
 public class EnemyData : ScriptableObject

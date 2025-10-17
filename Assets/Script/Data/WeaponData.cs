@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+public enum WeaponRank{Worst,Low,Mid,High,Legend}
 [CreateAssetMenu(fileName = "WeaponDeta", menuName = "Scriptable Objects/WeaponDeta")]
 
 public class WeaponData : ScriptableObject
@@ -7,7 +8,7 @@ public class WeaponData : ScriptableObject
     
     public int ID;
     public string Name;
-    public int rank;
+    public WeaponRank rank;
     public ElementType element = ElementType.None;
     public int power;
     public int accuracy;

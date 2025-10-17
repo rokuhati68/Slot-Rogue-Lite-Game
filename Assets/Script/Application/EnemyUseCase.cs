@@ -25,7 +25,7 @@ public class EnemyUseCase:MonoBehaviour
     {
         var enemy = _enemyCatalog.TryGet(1);
         _enemy.Set(enemy);
-        _enemyWeaponsSet.WeaponSet(enemy.weapons);
+        _enemyWeaponsSet.WeaponSet(enemy.weapons,5);
         _battleEffectSet.EffectSet(enemy.effects);
         _enemyWeaponSlot.WeaponSet(enemy.weapons);
         _enemyEffectSlot.EffectSet(enemy.effects);

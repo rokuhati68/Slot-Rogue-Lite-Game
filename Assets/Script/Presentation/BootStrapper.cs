@@ -61,5 +61,7 @@ public class BootStrapper : MonoBehaviour
         // 7) BattleManager 初期化（必要なら Status も注入）
         _battleManager.Init(battleSession, playerTurnManager, enemyTurnManager, playerStatus, enemyStatus,battleLog);
         //_battleManager.Init(battleSession, playerTurnManager, enemyTurnManager);
+        //8)Reward系
+
     }
 }
