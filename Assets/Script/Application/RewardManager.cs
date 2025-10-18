@@ -15,9 +15,12 @@ public class RewardManager:MonoBehaviour
     public TextMeshProUGUI[] status;
     public WeaponDataView weaponDataView;
     public WeaponDataView rewardWeaponData;
+    public AddStatusSelector addStatusSelector;
+    public AddStatusSet addStatusSet;
     void Awake()
     {
         rewardSelector = new RewardSelector(catalog);
+        addStatusSelector = new AddStatusSelector();
     }
     public void ShowPanel()
     {
@@ -40,8 +43,11 @@ public class RewardManager:MonoBehaviour
     void RewardSet()
     {
         var weapons = rewardSelector.Select(EnemyRank.Low);
+        var addStatus = addStatusSelector.Select(EnemyRank.Low);
         rewardWeaponsUISet.WeaponSet(weapons,3);
         rewardWeaponData.View(weapons,3);
+        addStatusSet.RewardSet(addStatus);
+
     }
 
 

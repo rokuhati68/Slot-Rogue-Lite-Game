@@ -23,8 +23,6 @@ public class PlayerUseCase:MonoBehaviour
 
     public void PlayerSet()
     {
-
-        _player.Set(_playerData.HP, _playerData.ATK,_playerData.DFS);
         _playerWeaponsSet.WeaponSet(_playerData.weapons,5);
         _battleEffectSet.EffectSet(_playerData.effects);
         _playerWeaponSlot.WeaponSet(_playerData.weapons);

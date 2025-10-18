@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 {
     public BattleManager _battleManager;   // 既存参照
     public RewardManager _rewardManager;   // 既存参照
-
+    public RewardButtonDecider _rewardButtonDecider;
     public GameState State { get; private set; } = GameState.StageSelect;
 
     // ステージ管理（必要ならSOや配列で）
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     {
         // イベント購読
         _battleManager.OnBattleFinished += HandleBattleFinished;
+        _rewardButtonDecider.OnRewardFinished += HandleRewardSelected;
         //_rewardManager.OnRewardSelected += HandleRewardSelected;
 
         // 入口
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
     private void OnDestroy()
     {
         _battleManager.OnBattleFinished -= HandleBattleFinished;
+        _rewardButtonDecider.OnRewardFinished -= HandleRewardSelected;
         //_rewardManager.OnRewardSelected -= HandleRewardSelected;
     }
 
@@ -85,13 +87,14 @@ public class GameManager : MonoBehaviour
         _rewardManager.ShowPanel(); // パネル表示＆選択待ち（OnRewardSelectedを待つ）
     }
 
-    private void HandleRewardSelected(WeaponData selected)
+    private void HandleRewardSelected()
     {
         // 受け取り：インベントリ更新など
         // PlayerInventory.AddWeapon(selected);
 
         // 次のステージへ進行
         _stageIndex++;
+        _rewardManager.HidePanel();
         EnterStageSelect();
     }
 

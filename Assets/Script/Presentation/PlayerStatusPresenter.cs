@@ -10,6 +10,7 @@ public class PlayerStatusPresenter:MonoBehaviour
     {
         _player.PlayerSet += OnPlayerSet;
         _player.PlayerDamaged += OnDamaged;
+        OnPlayerSet();
     }
 
     void OnDisable()
